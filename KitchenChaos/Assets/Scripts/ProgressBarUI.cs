@@ -15,9 +15,8 @@ public class ProgressBarUI : MonoBehaviour
     private void Start()
     {
         hasProgress = hasProgressGameObject.GetComponent<IHasProgress>();
-        if(hasProgress == null ) { Debug.LogError("Game Object" + hasProgressGameObject + "does not implement IHasProgress"); }
+        if(hasProgress == null) {Debug.LogError("Game Object" + hasProgressGameObject + "does not implement IHasProgress"); }
         hasProgress.OnProgressChanged += HasProgress_OnProgressChanged;
-
         barImage.fillAmount = 0f;
 
         Hide();// do it after listenning to the event you want
@@ -27,11 +26,13 @@ public class ProgressBarUI : MonoBehaviour
     {
         barImage.fillAmount = e.progressNormalized;
 
-        if(e.progressNormalized == 0f || e.progressNormalized == 1f)
+        if (e.progressNormalized == 0f || e.progressNormalized == 1f)
         {
             Hide();
-        } else { Show(); }
+        }
+        else { Show(); }
     }
+
 
     private void Show()
     {
