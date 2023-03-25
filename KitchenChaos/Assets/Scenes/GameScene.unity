@@ -1769,6 +1769,11 @@ PrefabInstance:
       propertyPath: platesCounter
       value: 
       objectReference: {fileID: 996904979}
+    - target: {fileID: 6351273038587305194, guid: 62a245baab6097e41bb6816f065a165a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8464714147450041576, guid: 62a245baab6097e41bb6816f065a165a,
         type: 3}
       propertyPath: m_RootOrder
