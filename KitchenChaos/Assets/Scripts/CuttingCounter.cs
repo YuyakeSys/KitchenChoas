@@ -111,7 +111,6 @@ public class CuttingCounter : BaseCounter, IHasProgress
     private bool HasRecipeWithInput(KitchenObjectSO inputKichenObjectSO)
     {
         CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKichenObjectSO);
-        Debug.Log(cuttingRecipeSO != null);
         return cuttingRecipeSO != null;
     }
 

@@ -202,7 +202,6 @@ public class StoveCounter : BaseCounter, IHasProgress
     private bool HasRecipeWithInput(KitchenObjectSO inputKichenObjectSO)
     {
         FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputKichenObjectSO);
-        Debug.Log(fryingRecipeSO != null);
         return fryingRecipeSO != null;
     }
 
