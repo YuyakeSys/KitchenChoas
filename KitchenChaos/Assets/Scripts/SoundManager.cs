@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SoundManager : MonoBehaviour
 {
 
+    public static SoundManager instance { get; private set; }
+
     [SerializeField] private AudioClipRefsSO audioClipRefsSO;
+
+    private void Awake()
+    {
+        instance = this; 
+    }
 
     private void Start()
     {
@@ -14,6 +22,13 @@ public class SoundManager : MonoBehaviour
         CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
         Player.Instance.OnPickedSomething += Instance_OnPickedSomething;
         BaseCounter.OnAnyObjectPlaceHere += BaseCounter_OnAnyObjectPlaceHere;
+        TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
+    }
+
+    private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
+    {
+        TrashCounter trashCounter = sender as TrashCounter;
+        PlaySound(audioClipRefsSO.trash, trashCounter.transform.position);
     }
 
     private void BaseCounter_OnAnyObjectPlaceHere(object sender, System.EventArgs e)
@@ -53,5 +68,10 @@ public class SoundManager : MonoBehaviour
     private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volume);
+    }
+
+    public void PlayFootstepsSound(Vector3 position, float volume)
+    {
+        PlaySound(audioClipRefsSO.footStep, position, volume);
     }
 }
