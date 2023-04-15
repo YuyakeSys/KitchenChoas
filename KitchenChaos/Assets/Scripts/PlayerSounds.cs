@@ -24,7 +24,7 @@ public class PlayerSounds : MonoBehaviour
             if (player.IsWalking())
             {
                 float volume = 1f;
-                SoundManager.instance.PlayFootstepsSound(player.transform.position, volume);
+                SoundManager.Instance.PlayFootstepsSound(player.transform.position, volume);
             }
         }
     }
